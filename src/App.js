@@ -51,15 +51,16 @@ componentWillUnmount(){
             )
             }
             />
+      
       </Switch>
     </div>
   );
 }
 }
-const mapStateToProps = ({user}) =>({
-  currentUser: user.currentUser
-})
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user=>dispatch(setCurrentUser(user))
-});
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+  setCurrentUser: (user) => dispatch(setCurrentUser(user))
+})
+const mapStateToProps = state =>({
+  currentUser: state.user.currentUser
+})
+export default connect(mapStateToProps, mapDispatchToProps)(App);
